@@ -1,0 +1,26 @@
+# Edit video_path, or pass --video on the command line. Values are deliberately
+# small enough for a laptop; increase them only after a successful pilot run.
+seed: 31
+video_path: data/original/v_BabyCrawling_g19_c02.avi
+preprocessing:
+  size: [128, 128]           # [width, height] passed to OpenCV
+  max_frames: 80
+  frame_stride: 1
+  grayscale: true
+completion:
+  max_iterations: 30
+  tolerance: 0.0001
+  initialization: temporal_mean # global_mean | temporal_mean | zero
+  ridge: 1.0e-6
+experiments:
+  - corruption: random
+    missing_fractions: [0.10, 0.30, 0.50]
+  - corruption: block
+    missing_fractions: [0.10, 0.30]
+  - corruption: frames
+    gap_lengths: [1, 3, 5]
+methods: [cp, tucker, temporal_linear, previous, next, spatial]
+cp_ranks: [5, 10]
+tucker_ranks: [[10, 10, 5], [20, 20, 10]]
+save_video: true
+

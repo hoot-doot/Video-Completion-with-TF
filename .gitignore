@@ -1,0 +1,58 @@
+# Python bytecode and tooling caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Local Python environments and package-build artifacts
+.venv/
+venv/
+env/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# Streamlit secrets and local runtime state
+.streamlit/secrets.toml
+.streamlit/*.db
+
+# Local editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local configuration and logs (never commit credentials)
+.env
+.env.*
+!.env.example
+*.log
+
+# Input data is replaceable and can grow quickly. Keep only placeholder files.
+data/original/*
+!data/original/.gitkeep
+data/corrupted/*
+!data/corrupted/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Generated experiment artifacts and per-upload Streamlit results
+experiments/results/*
+!experiments/results/.gitkeep
+outputs/figures/*
+!outputs/figures/.gitkeep
+outputs/reconstructed_frames/*
+!outputs/reconstructed_frames/.gitkeep
+outputs/reconstructed_videos/*
+!outputs/reconstructed_videos/.gitkeep
+outputs/web_demo/*
+!outputs/web_demo/.gitkeep
